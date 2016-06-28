@@ -1,9 +1,11 @@
-const canvas = document.getElementById('myCanvas');
+window.onload = () => {
+  const canvas = document.getElementById('myCanvas');
 
-if (canvas.getContext) {
-  const ctx = canvas.getContext('2d');
+  if (canvas.getContext) {
+    const ctx = canvas.getContext('2d');
 
-  drawPoster(ctx);
+    drawPoster(ctx);
+  }
 }
 
 function drawPoster(ctx) {
@@ -46,12 +48,18 @@ function drawPoster(ctx) {
   ctx.bezierCurveTo(8, 45, 10, 30, 5, 10);
   ctx.lineTo(0, 0);
 
-  // Center Rectangle
-  ctx.strokeRect(51, 76, 48, 48);
+  const gradient = ctx.createLinearGradient(0, 0, 150, 200);
+  gradient.addColorStop(0, '#f5f5dc');
+  gradient.addColorStop(0.5, '#d7ccc8');
+  gradient.addColorStop(1, '#f5f5dc');
+  ctx.fillStyle = gradient;
+  ctx.fill();
 
-  // Text
+  // Text and center rectangle
   const f = new FontFace('Cowboy', 'url(CowboyMovie.ttf)');
   f.load().then(() => {
+    ctx.fillStyle = 'black';
+    ctx.strokeRect(51, 76, 48, 48);
     ctx.font = '48px Cowboy';
     ctx.fillText('WANTED', 20, 60);
     ctx.fillText('REWARD', 20, 180);
