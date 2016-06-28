@@ -8,6 +8,7 @@ window.onload = () => {
   }
 }
 
+// width: 150px, height: 200px
 function drawPoster(ctx) {
   ctx.beginPath();
   ctx.moveTo(0, 0);
@@ -59,7 +60,8 @@ function drawPoster(ctx) {
   const f = new FontFace('Cowboy', 'url(CowboyMovie.ttf)');
   f.load().then(() => {
     ctx.fillStyle = 'black';
-    ctx.strokeRect(51, 76, 48, 48);
+    // ctx.strokeRect(51, 76, 48, 48);
+    ctx.strokeRect(25, 75, 100, 50);
     ctx.font = '48px Cowboy';
     ctx.fillText('WANTED', 20, 60);
     ctx.fillText('REWARD', 20, 180);
